@@ -45,11 +45,66 @@ ul {
 
   &--active {
     color: #ff1e43;
-    padding: 0.3rem;
   }
 
   &__rightMenu {
+    display: flex;
+    align-items: center;
     color: #fff;
     font-size: 2rem;
+    margin-right: 1rem;
+  }
+
+  &__hamburger {
+    display: none;
+  }
+
+  &__search {
+    padding: 0.4rem;
+    border-radius: 0.3rem;
+    border: none;
+    margin-right: 0.5rem;
+    display: none;
+  }
+
+  &__hamburger,
+  &__searchBtn {
+    cursor: pointer;
+  }
+}
+
+.show {
+  display: inline-block;
+}
+
+@media (max-width: 768px) {
+  .nav {
+    &__hamburger {
+      display: inline-block;
+      z-index: 5;
+    }
+
+    &__links {
+      position: fixed;
+      transition: all 0.3s ease-out;
+      transform: translateX(100%);
+      display: flex;
+      top: 0;
+      right: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: #000;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    &__link {
+      font-size: 1.4rem;
+    }
+
+    &--open {
+      transform: translateX(0);
+    }
   }
 }
