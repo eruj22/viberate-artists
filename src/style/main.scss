@@ -4,8 +4,6 @@
   box-sizing: border-box;
 }
 
-$viberate-red: #ff1e43;
-
 body {
   font-size: 1rem;
   color: #000;
@@ -63,6 +61,33 @@ button {
     display: flex;
     align-items: center;
   }
+}
+
+.progress {
+  background-color: #4c4f57;
+  appearance: none;
+  border: none;
+  height: 0.3rem;
+  border-radius: 0.3rem;
+  margin-bottom: 0.5rem;
+  width: 100%;
+
+  &::-webkit-progress-bar {
+    background-color: #4c4f57;
+  }
+
+  &::-webkit-progress-value {
+    background-color: #fff;
+  }
+
+  &::-moz-progress-bar {
+    background-color: #fff;
+  }
+}
+
+.tooltip__title {
+  display: inline-block;
+  margin-bottom: 0.4rem;
 }
 
 .btn {
@@ -141,6 +166,19 @@ button {
       background-position: -6px -7px;
     }
   }
+
+  &--reverse {
+    color: #fff;
+    border-color: #fff;
+    width: 100%;
+    padding: 0.6rem 0;
+    margin: 3rem 0 1rem;
+
+    &:hover {
+      color: #000;
+      background-color: #fff;
+    }
+  }
 }
 
 .label {
@@ -181,7 +219,7 @@ button {
   }
 
   &--active {
-    color: $viberate-red;
+    color: #ff1e43;
   }
 
   &__rightMenu {
