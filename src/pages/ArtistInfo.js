@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import ArtistDetails from "../components/ArtistDetails";
 import ArtistPopularity from "../components/ArtistPopularity";
+import Loader from "../components/Loader";
 
 function ArtistInfo() {
   const [artistData, setArtistData] = useState([]);
@@ -20,7 +21,7 @@ function ArtistInfo() {
   }, [id]);
 
   if (isArtistLoading) {
-    return <h1>Loading...</h1>;
+    return <Loader />;
   }
 
   return (

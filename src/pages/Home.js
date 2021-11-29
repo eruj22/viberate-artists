@@ -1,11 +1,12 @@
 import React from "react";
+import Loader from "../components/Loader";
 import { useAppContext } from "../context/app_context";
 
 function Home() {
   const { areArtistsLoading } = useAppContext();
 
   if (areArtistsLoading) {
-    return <h1>loading...</h1>;
+    return <Loader />;
   }
 
   return (

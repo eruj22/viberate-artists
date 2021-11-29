@@ -5,6 +5,7 @@ import hot from "../assets/hot.svg";
 import claimed from "../assets/icon-claimed.svg";
 import ReactTooltip from "react-tooltip";
 import { tooltipContent } from "../utils/functions";
+import PropTypes from "prop-types";
 
 function ArtistDetails({ artistData }) {
   const { booking_available, name, trending, subgenres } = artistData;
@@ -56,5 +57,9 @@ function ArtistDetails({ artistData }) {
     </>
   );
 }
+
+ArtistDetails.propTypes = {
+  artistData: PropTypes.object.isRequired,
+};
 
 export default ArtistDetails;

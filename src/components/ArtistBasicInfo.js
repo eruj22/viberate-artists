@@ -1,6 +1,7 @@
 import React from "react";
 import ReactTooltip from "react-tooltip";
 import { tooltipContent } from "../utils/functions";
+import PropTypes from "prop-types";
 
 function ArtistBasicInfo({ artistData }) {
   const { country, genre, subgenres } = artistData;
@@ -47,5 +48,9 @@ function ArtistBasicInfo({ artistData }) {
     </>
   );
 }
+
+ArtistBasicInfo.propTypes = {
+  artistData: PropTypes.object.isRequired,
+};
 
 export default ArtistBasicInfo;

@@ -1,6 +1,7 @@
 import React from "react";
 import ReactTooltip from "react-tooltip";
 import { tooltipContent } from "../utils/functions";
+import PropTypes from "prop-types";
 
 function ArtistSocial({ artistData }) {
   const { social_links } = artistData;
@@ -62,5 +63,9 @@ function ArtistSocial({ artistData }) {
     </>
   );
 }
+
+ArtistSocial.propTypes = {
+  artistData: PropTypes.object.isRequired,
+};
 
 export default ArtistSocial;
