@@ -1,0 +1,56 @@
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.icon {
+  &--medium {
+    max-width: 30px;
+  }
+
+  &--small {
+    max-width: 20px;
+  }
+
+  &--marginLeft {
+    margin-left: 0.5rem;
+  }
+}
+
+.row {
+  width: 100%;
+  margin-top: 1rem;
+
+  &--center {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.tooltip__title {
+  display: inline-block;
+  margin-bottom: 0.4rem;
+}
+
+.label {
+  display: block;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  color: #707580;
+  letter-spacing: 2px;
+  font-weight: 500;
+  margin-bottom: 0.3rem;
+}
+
+.plusIcon {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.show {
+  display: inline-block;
+}
+
+.hide {
+  display: none;
+}
