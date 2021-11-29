@@ -1,0 +1,48 @@
+.hero {
+  position: relative;
+
+  &__text {
+    position: absolute;
+    color: #fff;
+    top: 10%;
+    left: 15%;
+  }
+
+  &__title {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+  }
+
+  &__subtitle {
+    font-size: 1.3rem;
+  }
+
+  &__image {
+    height: 90vh;
+    object-fit: cover;
+    object-position: top;
+  }
+}
+
+.imageMobile {
+  display: none;
+}
+
+@media (max-width: 1100px) {
+  .hero {
+    &__text {
+      top: 5%;
+      left: 5%;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .imageMobile {
+    display: block;
+  }
+
+  .imageDesktop {
+    display: none;
+  }
+}
