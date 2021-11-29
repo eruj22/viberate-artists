@@ -1,5 +1,6 @@
 import React from "react";
 import ReactTooltip from "react-tooltip";
+import { tooltipContent } from "../utils/functions";
 
 function ArtistSocial({ artistData }) {
   const { social_links } = artistData;
@@ -54,12 +55,8 @@ function ArtistSocial({ artistData }) {
           })}
         </div>
         <button
-          className="btn btn--filled btn--add"
-          data-tip={`<h3 class="tooltip__title">GOT MORE INFO?</h3>
-              <p>Add Place's links so everyone can<br />
-              see their social 
-              media highlights.</p>
-              <button class="btn btn--reverse">VOTE NOW</button>`}
+          className="btn btn--filled btn__add"
+          data-tip={tooltipContent("info")}
         ></button>
       </div>
     </>

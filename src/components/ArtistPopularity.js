@@ -1,5 +1,5 @@
 import React from "react";
-
+// TODO: add prop types
 function ArtistPopularity({ artistData }) {
   return (
     <div className="artist__popularity">

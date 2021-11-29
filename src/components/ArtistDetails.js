@@ -4,11 +4,10 @@ import ArtistSocial from "./ArtistSocial";
 import hot from "../assets/hot.svg";
 import claimed from "../assets/icon-claimed.svg";
 import ReactTooltip from "react-tooltip";
+import { tooltipContent } from "../utils/functions";
 
 function ArtistDetails({ artistData }) {
-  const { booking_available, name, trending } = artistData;
-
-  console.log(artistData);
+  const { booking_available, name, trending, subgenres } = artistData;
 
   return (
     <>
@@ -35,24 +34,7 @@ function ArtistDetails({ artistData }) {
               src={claimed}
               alt="claim"
               className="icon--small icon--marginLeft"
-              data-tip={`<h3 class="tooltip__title">VOTE FOR SUBGENRES</h3>
-              <p>Don’t agree with the subgenres? <br />
-              Add the ones you think are <br />
-              missing or vote for existing to get <br />
-              yours on top!</p><br />
-              <h4>ALTERNATIVE ROCK</h4>
-              <progress class="progress" value="32" max="100">
-                32%
-              </progress>
-              <h4>ALTERNATIVE METAL</h4>
-              <progress class="progress" value="32" max="100">
-                32%
-              </progress>
-              <h4>PROGRESSIVE ROCK</h4>
-              <progress class="progress" value="32" max="100">
-                32%
-              </progress>
-              <button class="btn btn--reverse">VOTE NOW</button>`}
+              data-tip={tooltipContent("vote", subgenres)}
             />
             <img
               src={hot}
@@ -63,8 +45,8 @@ function ArtistDetails({ artistData }) {
         </div>
 
         <div className="row row--center">
-          <button className="btn btn--filled btn--follow">follow</button>
-          <button className="btn btn--filled btn--share"></button>
+          <button className="btn btn--filled btn__follow">follow</button>
+          <button className="btn btn--filled btn__share"></button>
         </div>
 
         <ArtistBasicInfo artistData={artistData} />

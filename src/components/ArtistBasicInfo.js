@@ -1,5 +1,6 @@
 import React from "react";
 import ReactTooltip from "react-tooltip";
+import { tooltipContent } from "../utils/functions";
 
 function ArtistBasicInfo({ artistData }) {
   const { country, genre, subgenres } = artistData;
@@ -39,25 +40,8 @@ function ArtistBasicInfo({ artistData }) {
           );
         })}
         <button
-          className="btn btn--filled btn--add"
-          data-tip={`<h3 class="tooltip__title">VOTE FOR SUBGENRES</h3>
-              <p>Don’t agree with the subgenres? <br />
-              Add the ones you think are <br />
-              missing or vote for existing to get <br />
-              yours on top!</p><br />
-              <h4>ALTERNATIVE ROCK</h4>
-              <progress class="progress" value="32" max="100">
-                32%
-              </progress>
-              <h4>ALTERNATIVE METAL</h4>
-              <progress class="progress" value="32" max="100">
-                32%
-              </progress>
-              <h4>PROGRESSIVE ROCK</h4>
-              <progress class="progress" value="32" max="100">
-                32%
-              </progress>
-              <button class="btn btn--reverse">VOTE NOW</button>`}
+          className="btn btn--filled btn__add"
+          data-tip={tooltipContent("vote", subgenres)}
         ></button>
       </div>
     </>
