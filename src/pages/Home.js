@@ -1,13 +1,11 @@
 import React from "react";
 import Loader from "../components/Loader";
-import { useAppContext } from "../context/app_context";
 import hero from "../assets/hero.jpg";
 import heroMobile from "../assets/hero_mobile.jpg";
+import PropTypes from "prop-types";
 
-function Home() {
-  const { areArtistsLoading } = useAppContext();
-
-  if (areArtistsLoading) {
+function Home({ loading }) {
+  if (loading) {
     return <Loader />;
   }
 
@@ -23,5 +21,9 @@ function Home() {
     </section>
   );
 }
+
+Home.propTypes = {
+  loading: PropTypes.bool.isRequired,
+};
 
 export default Home;

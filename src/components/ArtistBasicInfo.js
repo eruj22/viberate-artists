@@ -40,6 +40,7 @@ function ArtistBasicInfo({ artistData }) {
             </button>
           );
         })}
+
         <button
           className="btn btn--filled btn__add"
           data-tip={tooltipContent("vote", subgenres)}

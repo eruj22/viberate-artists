@@ -1,3 +1,10 @@
+body {
+  font-size: 1rem;
+  color: #000;
+  font-family: "Sora", sans-serif;
+  background-color: #f6f6f5;
+}
+
 .container {
   max-width: 1440px;
   margin: 0 auto;
@@ -45,10 +52,6 @@
 .plusIcon {
   font-size: 1.1rem;
   font-weight: bold;
-}
-
-.show {
-  display: inline-block;
 }
 
 .hide {

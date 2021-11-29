@@ -29,6 +29,7 @@ function ArtistDetails({ artistData }) {
           <button className={booking_available ? "btn btn--solid" : "hide"}>
             booking request
           </button>
+
           <h1 className="artist__title">
             {name}
             <img
@@ -37,6 +38,7 @@ function ArtistDetails({ artistData }) {
               className="icon--small icon--marginLeft"
               data-tip={tooltipContent("vote", subgenres)}
             />
+
             <img
               src={hot}
               alt="fire"

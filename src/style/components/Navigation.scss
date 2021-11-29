@@ -48,17 +48,27 @@
   &__searchBtn {
     cursor: pointer;
   }
+
+  &__searchBtn {
+    width: 28px;
+  }
+}
+
+.show {
+  display: inline-block;
 }
 
 @media (max-width: 768px) {
   .nav {
     &__hamburger {
+      width: 28px;
       display: inline-block;
-      z-index: 5;
+      z-index: 15;
       margin-left: 1rem;
     }
 
     &__links {
+      z-index: 10;
       position: fixed;
       transition: all 0.3s ease-out;
       transform: translateX(100%);

@@ -10,14 +10,18 @@ function ArtistInfo() {
   const { id } = useParams();
   const { image, name } = artistData;
 
-  useEffect(() => {
-    fetch(`https://run.mocky.io/v3/${id}`)
+  const fetchData = (url) => {
+    fetch(url)
       .then((resp) => resp.json())
       .then((resp) => {
         setArtistData(resp.data);
         setIsArtistLoading(false);
       })
       .catch((error) => console.log(error));
+  };
+
+  useEffect(() => {
+    fetchData(`https://run.mocky.io/v3/${id}`);
   }, [id]);
 
   if (isArtistLoading) {
@@ -28,7 +32,9 @@ function ArtistInfo() {
     <div className="container">
       <section className="artist">
         <img src={image} alt={`artist ${name}`} className="artist__image" />
+
         <ArtistDetails artistData={artistData} />
+
         <ArtistPopularity artistData={artistData} />
       </section>
     </div>

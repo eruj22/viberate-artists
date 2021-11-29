@@ -7,8 +7,10 @@ function ArtistSocial({ artistData }) {
   const { social_links } = artistData;
   const urlOrigin = window.location.origin;
 
-  const reqSvgs = require.context("../../public/svg", true, /\.svg$/);
-  const svgs = reqSvgs.keys().map((path) => ({ path, file: reqSvgs(path) }));
+  const getSocialSvgs = require.context("../../public/svg", true, /\.svg$/);
+  const allSocialSvgs = getSocialSvgs
+    .keys()
+    .map((path) => ({ path, file: getSocialSvgs(path) }));
 
   return (
     <>
@@ -28,11 +30,15 @@ function ArtistSocial({ artistData }) {
         <div className="artist__links">
           {social_links.map((socialLink) => {
             const { channel, link } = socialLink;
-            const newChannel = channel.replaceAll("_", "");
-            const svg = svgs.filter((item) => item.path.includes(newChannel));
 
-            const svgLinkBlack = svg[0].path.replace(".", "");
-            const svgLinkColor = svg[1].path.replace(".", "");
+            const newChannel = channel.replaceAll("_", "");
+            const currentSvg = allSocialSvgs.filter((item) =>
+              item.path.includes(newChannel)
+            );
+
+            const svgLinkBlack = currentSvg[0].path.replace(".", "");
+            const svgLinkColor = currentSvg[1].path.replace(".", "");
+
             return (
               <a
                 href={link}
@@ -44,6 +50,7 @@ function ArtistSocial({ artistData }) {
                 <img
                   src={`/svg${svgLinkBlack}`}
                   alt={newChannel}
+                  className="artist__socialImg"
                   onMouseOver={(e) => {
                     e.currentTarget.src = `${urlOrigin}/svg${svgLinkColor}`;
                   }}

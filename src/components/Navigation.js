@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { useAppContext } from "../context/app_context";
 import { NavLink, Link } from "react-router-dom";
 import logo from "../assets/viberate-color.svg";
-import { GiHamburgerMenu } from "react-icons/gi";
-import { BiSearch } from "react-icons/bi";
+import burgerMenu from "../assets/burger-menu-white.svg";
+import closeMenu from "../assets/close-white.svg";
+import search from "../assets/search-white.svg";
+import PropTypes from "prop-types";
 
-function Navigation() {
-  const { allArtists } = useAppContext();
+function Navigation({ allArtists }) {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
 
@@ -19,7 +19,6 @@ function Navigation() {
       <ul className={`nav__links ${isNavOpen ? "nav--open" : ""}`}>
         {allArtists.map((artist) => {
           const { artist_name, artist_uuid } = artist;
-
           return (
             <li className="nav__item" key={artist_uuid}>
               <NavLink
@@ -42,17 +41,36 @@ function Navigation() {
           className={`nav__search ${showSearch ? "show" : ""}`}
           placeholder="Search artists"
         />
-        <BiSearch
+
+        <img
+          src={search}
+          alt="search icon"
           className="nav__searchBtn"
           onClick={() => setShowSearch(!showSearch)}
         />
-        <GiHamburgerMenu
-          className="nav__hamburger"
-          onClick={() => setIsNavOpen(!isNavOpen)}
-        />
+
+        {isNavOpen ? (
+          <img
+            src={closeMenu}
+            alt="open mobile menu"
+            className="nav__hamburger"
+            onClick={() => setIsNavOpen(false)}
+          />
+        ) : (
+          <img
+            src={burgerMenu}
+            alt="open mobile menu"
+            className="nav__hamburger"
+            onClick={() => setIsNavOpen(true)}
+          />
+        )}
       </div>
     </nav>
   );
 }
+
+Navigation.propTypes = {
+  allArtists: PropTypes.array.isRequired,
+};
 
 export default Navigation;
